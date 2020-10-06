@@ -350,26 +350,3 @@ else:
 print('\n=======================================================================')
 print('Trained and Ready! Now lets make some predictions!!')
 
-
-#results = model.fit(X_train,X_train,validation_split=0.01, batch_size=BATCH_SIZE, epochs=NB_EPOCH, callbacks=callbacks)
-
-accuracy = model.evaluate(X_test, Y_test, verbose=1)
-
-'''
-csv_fname = '/content/drive/My Drive/RecSys/nn_recomender_test1.csv'
-with open(csv_fname, 'w') as f:
-  f.write('user_id,item_list\n')
-  for i in tqdm(range(number_of_test_users)):
-    prediction = model.predict(X_test[i,:,:])
-    prediction = prediction[0,:] 
-    prediction[np.where(X_test[i,0,:] == 1)] = 0
-    prediction = np.argpartition(-prediction, at)[:at]#.tolist()[0]
-    #prediction = np.partition(prediction, at)[:at]#.tolist()[0]
-    #print (prediction[:].sum()
-    #print (prediction)
-    #print (prediction.shape)
-    #results[i] = prediction
-    prediction = ' '.join(str(x) for x in prediction)
-    write_output = f.write(test_ids[i].__str__() + ',' + prediction + '\n')
-#make_prediction_file(results, filename='/content/drive/My Drive/RecSys/nn_recomender_test1.csv')
-'''
